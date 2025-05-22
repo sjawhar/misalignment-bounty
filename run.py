@@ -6,12 +6,6 @@ import os
 import shutil
 load_dotenv()
 
-MODELS = [
-    "anthropic/claude-3-5-sonnet-latest",
-    "openai/gpt-4o",
-    # "google/gemini-1.5-pro"
-]
-# Create a folder for logs if it doesn't exist
 log_dir = "logs-temp"
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
@@ -36,7 +30,6 @@ eval_set(bounty(), model=[
     "google/gemini-2.5-pro-preview-05-06",
     "google/gemini-2.5-flash-preview-05-20"
 ], log_dir=log_dir)
-
 
 now = datetime.now().strftime("%Y%m%d_%H%M%S")
 destination_dir = f"logs/{now}"
