@@ -9,6 +9,7 @@ load_dotenv()
 log_dir = "logs-temp"
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
+    
 eval_set(bounty(), model=[
     # Anthropic
     "anthropic/claude-3-5-sonnet-20241022",
