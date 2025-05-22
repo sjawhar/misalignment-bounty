@@ -9,9 +9,8 @@ load_dotenv()
 log_dir = "logs-temp"
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
-    
-eval_set(bounty(), 
-         model=[
+
+MODELS = [
             # Anthropic
             # "anthropic/claude-3-5-sonnet-20241022",
             # "anthropic/claude-opus-4-20250514",
@@ -31,7 +30,10 @@ eval_set(bounty(),
             "google/gemini-2.0-flash",
             # "google/gemini-2.5-pro-preview-05-06",
             # "google/gemini-2.5-flash-preview-05-20"
-        ], 
+        ]
+
+eval_set(bounty(len(MODELS)), 
+         model=MODELS, 
         log_dir=log_dir)
 
 now = datetime.now().strftime("%Y%m%d_%H%M%S")
